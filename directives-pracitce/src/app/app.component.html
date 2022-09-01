@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+         <!-- <div *ngIf="onlyOdd">
+          <li
+          class="list-group-item"
+          *ngFor="let number of oddNumbers"
+          [ngClass]="{odd: number % 2 !== 0}"
+          [ngStyle]="{background: number % 2 !== 0 ? 'green' : 'transparent'}"
+          [bHighlight]="'red'" [onHoverColor]="'yellow'">
+          {{number}}
+        </li>
+      </div> -->
+      <div *ngIf="!onlyOdd">
+        <li
+        class="list-group-item"
+        *ngFor="let number of evenNumbers"
+        [ngClass]="{even: number % 2 === 0}"
+        [ngStyle]="{background: number % 2 === 0 ? 'yellow' : 'transparent'}">
+        {{number}}
+      </li>
+    </div>
+    <div *appUnless="onlyOdd">
+      <li
+      class="list-group-item"
+      *ngFor="let number of oddNumbers"
+      [ngClass]="{odd: number % 2 !== 0}"
+      [ngStyle]="{background: number % 2 !== 0 ? 'green' : 'transparent'}"
+      [bHighlight]="'red'" [onHoverColor]="'yellow'">
+      {{number}}
+    </li>
+  </div>
+    </ul>
+    </div>
+    <p [bHighlight]="'red'" [onHoverColor]="'yellow'"> this is the directive styling I SWEAR!!  </p>
+  </div>
+</div>
