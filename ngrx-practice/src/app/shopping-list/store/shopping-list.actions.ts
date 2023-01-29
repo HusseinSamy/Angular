@@ -30,7 +30,7 @@ export class DeleteIngredient implements Action{
 
 export class UpdateIngredient implements Action{
   readonly type: string = UPDATE_INGREDIENT;
-  constructor(public payload: {index: number, ingredient: Ingredient}) {};
+  constructor(public payload: Ingredient) {};
 }
 
 export class StartEdit implements Action{

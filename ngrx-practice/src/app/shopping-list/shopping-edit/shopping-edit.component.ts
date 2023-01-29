@@ -33,7 +33,6 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.subscription = this.store.select('shoppingList').subscribe({
       next: (data) => {
         if (data.editedIngredientIndex > -1) {
-          this.editedItemIndex = data.editedIngredientIndex
           this.editMode = true;
           this.editedItem = data.editedIngredient;
           this.slForm.setValue({
@@ -68,7 +67,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     const newIngredient = new Ingredient(value.name, value.amount);
     if (this.editMode) {
       // this.slService.updateIngredient(this.editedItemIndex, newIngredient);
-      this.store.dispatch(new ShoppingListActions.UpdateIngredient({index: this.editedItemIndex, ingredient: newIngredient}))
+      this.store.dispatch(new ShoppingListActions.UpdateIngredient(newIngredient))
     } else {
       this.store.dispatch(new ShoppingListActions.AddIngredient(newIngredient))
       // this.slService.addIngredient(newIngredient);
